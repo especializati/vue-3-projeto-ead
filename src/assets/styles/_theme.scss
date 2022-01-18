@@ -1,0 +1,349 @@
+@import "_responsive";
+
+// Variables for theme
+
+// Font
+$defaultFont: "Open Sans", sans-serif;
+
+// Font Sizes
+$defaultFontSize: 1rem;
+
+// Colors
+$primary: #8331a5;
+$primaryLight: #b77dcf;
+$grayLight: #dbdbdb;
+
+$backgroundDark: #272727;
+$backgroundBold: #363636;
+$backgroundLight: #464646;
+$backgroundList: #404040;
+$backgroundThin: #e1e1e1;
+
+$textColor: #646464;
+$textColorLight: #e6e6e6;
+$textColorOwner: #00FFBA;
+
+$iconColor: #d8d8d8;
+
+$LaravelColor: #ff8a3b;
+$LaravelColorLight: #fba165;
+$LaravelColorButton: #fe6207;
+$LaravelColorButtonLight: #f96d1b;
+
+$jsColor: #20a883;
+$jsColorLight: #4ec2a3;
+$jsColorButton: #198e6e;
+$jsColorButtonLight: #3b977e;
+
+$vueColor: #2e86b4;
+$vueColorLight: #56a1c8;
+$vueColorButton: #2c779e;
+$vueColorButtonLight: #327598;
+
+$flutterColor: #606060;
+$flutterColorLight: #7c7c7c;
+$flutterColorButton: #545454;
+$flutterColorButtonLight: #5e5e5e;
+
+// Shadows
+$defaultShadow: 2px 1px 5px 1px rgba(0, 0, 0, 0.2);
+
+// Sizes
+$navSize: 70px;
+$trainingSpace: 190px;
+
+// Global style
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: $defaultFont;
+  font-size: $defaultFontSize;
+  user-select: none;
+}
+
+body {
+  min-height: 100vh;
+
+  &.dark {
+    background-color: $backgroundDark;
+  }
+
+  &.light {
+    background-color: $backgroundLight;
+  }
+}
+
+.disabled {
+  background-color: #747474cc !important;
+  cursor: no-drop;
+}
+
+ul {
+  list-style: none;
+}
+
+// Util classes
+.logo img {
+    width: 200px;
+    height: auto;
+}
+
+.btn {
+  color: white;
+  border: none;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 7px 1rem;
+  border-radius: 20px;
+  transition: background-color 0.5s;
+  box-shadow: $defaultShadow;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  white-space: nowrap;
+
+  & i {
+    margin-right: 5px;
+  }
+
+  &.primary {
+    background-color: $primary;
+
+    &:hover {
+      background-color: $primaryLight;
+    }
+  }
+
+  &.laravel {
+    background-color: $LaravelColorButton;
+
+    &:hover {
+      background-color: $LaravelColorButtonLight;
+    }
+  }
+
+  &.js {
+    background-color: $jsColorButton;
+
+    &:hover {
+      background-color: $jsColorButtonLight;
+    }
+  }
+
+  &.vue {
+    background-color: $vueColorButton;
+
+    &:hover {
+      background-color: $vueColorButtonLight;
+    }
+  }
+
+  &.flutter {
+    background-color: $flutterColorButton;
+
+    &:hover {
+      background-color: $flutterColorButtonLight;
+    }
+  }
+
+  &.reverse {
+    color: $textColor;
+
+    &:hover {
+      background-color: $textColorLight;
+    }
+  }
+}
+
+.bg-laravel {
+  background-color: $LaravelColor;
+
+  &:hover {
+    background-color: $LaravelColorLight;
+  }
+}
+
+.bg-js {
+  background-color: $jsColor;
+
+  &:hover {
+    background-color: $jsColorLight;
+  }
+}
+
+.bg-vue {
+  background-color: $vueColor;
+
+  &:hover {
+    background-color: $vueColorLight;
+  }
+}
+
+.bg-flutter {
+  background-color: $flutterColor;
+
+  &:hover {
+    background-color: $flutterColorLight;
+  }
+}
+
+i.buttom {
+  cursor: pointer;
+}
+
+.dots {
+  display: flex;
+
+  span {
+    height: 5px;
+    width: 5px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.groupForm {
+  display: flex;
+  border: 1px solid $iconColor;
+  border-radius: 20px;
+  align-items: center;
+  padding: 6px;
+  margin-bottom: .5rem;
+  transition: color .5s, border .5s;
+
+  input {
+    border: none;
+    outline: none;
+    color: $textColor;
+    width: 100%;
+
+    &::placeholder {
+      color: $iconColor;
+    }
+  }
+
+  textarea {
+    width: 100%!important;
+    min-height: 150px;
+    border: none;
+    outline: none;
+    text-indent: 10px;
+    padding-top: 5px;
+    font-family: $defaultFont!important;
+  }
+
+  i {
+    color: $iconColor;
+    margin: 0 5px;
+  }
+
+  &:focus-within {
+    border: 1px solid $primaryLight;
+  }
+
+  &:focus-within i {
+    color: $primaryLight;
+  }
+}
+
+.link {
+  text-decoration: none;
+  font-weight: 600;
+  transition: color .5s;
+
+  &.primary {
+    color: $primary;
+
+    &:hover {
+      color: $primaryLight;
+    }
+  }
+}
+
+.fontSmall {
+  font-size: 10px!important;
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal-wrapper {
+    @include respond-to("medium") {
+      width: 100%;
+      display: flex;
+      justify-self: center;
+      align-items: center;
+      padding: 1rem;
+    }
+  }
+
+  .modal-container {
+    width: 600px;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: $defaultShadow;
+
+    @include respond-to("medium") {
+      width: 100%;
+    }
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $textColor;
+
+    .close {
+      cursor: pointer;
+      color: $textColor;
+    }
+  }
+
+  .details {
+    color: $textColor;
+    display: flex;
+    justify-content: space-between;
+    margin-top: .5rem;
+  }
+
+  .modal-body {
+    margin: 1rem 0;
+    margin-bottom: 0;
+  }
+  
+  textarea:focus {
+    background: none repeat scroll 0 0 white;
+    outline-width: 0;
+  }
+  
+  button {
+    width: auto;
+    margin-right: .5rem;
+  }
+
+  @include respond-to("medium") {
+
+  }
+}
