@@ -6,7 +6,10 @@
       </span>
       <span class="title">{{ title }}</span>
       <span class="action">
-        <a href="trainings.html" :class="['btn', bgName]">Acessar</a>
+        <!-- <a href="trainings.html" :class="['btn', bgName]">Acessar</a> -->
+        <router-link :to="{name: 'campus.modules'}" :class="['btn', bgName]">
+          Acessar
+        </router-link>
       </span>
     </span>
     <span class="dots">
