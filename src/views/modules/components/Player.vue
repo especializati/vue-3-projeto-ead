@@ -5,10 +5,10 @@
         <img src="images/icons/laravel.svg" alt="" />
       </span>
       <span class="title">Aula 01 - LaraFood</span>
-      <a href="trainings.html" class="btn laravel">
+      <router-link :to="{name: 'campus.home'}" class="btn laravel">
         <i class="fas fa-chevron-left"></i>
         Voltar
-      </a>
+      </router-link>
     </div>
     <iframe
       width="100%"

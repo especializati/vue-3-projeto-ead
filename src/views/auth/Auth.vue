@@ -51,7 +51,7 @@
                                 <input type="password" name="password" placeholder="Senha" required>
                                 <i class="far fa-eye buttom"></i>
                             </div>
-                            <button class="btn primary" type="submit">Login</button>
+                            <button class="btn primary" type="submit" @click.prevent="login">Login</button>
                         </form>
                         <span>
                             <p class="fontSmall">
@@ -70,7 +70,16 @@
 </template>
 
 <script>
+import router from '@/router'
+
 export default {
-    name: 'Auth'
+    name: 'Auth',
+    setup() {
+        const login = () => router.push({name: 'campus.home'})
+
+        return {
+            login
+        }
+    }
 }
 </script>
