@@ -82,6 +82,7 @@
 <script>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
+import { notify } from "@kyvg/vue3-notification";
 
 import router from '@/router'
 
@@ -102,7 +103,18 @@ export default {
                 device_name: 'vue3_web'
             })
             .then(() => router.push({name: 'campus.home'}))
-            .catch(() => alert('error'))
+            .catch(error => {
+                let msgError = 'Falha na requisição'
+
+                if (error.status === 422) msgError = 'Dados Inválidos'
+                if (error.status === 404) msgError = 'Usuário Não Encontrado'
+
+                notify({
+                    title: 'Falha ao autenticar',
+                    text: msgError,
+                    type: "warn"
+                });
+            })
             .finally(() => loading.value = false)
         }
 
