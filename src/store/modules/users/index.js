@@ -25,9 +25,9 @@ export default {
     },
 
     actions: {
-        auth ({ state }, params) {
-            console.log(state.loggedIn)
-            AuthService.auth(params)
+        auth ({state}, params) {
+            state.loggedIn
+            return AuthService.auth(params)
         }
     },
 }
