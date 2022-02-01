@@ -12,8 +12,8 @@
           <span class="icon fas fa-sort-down"></span>
         </div>
         <ul class="classes">
-          <li class="active" v-for="lesson in module.lessons" :key="lesson.id">
-            <span class="check active fas fa-check"></span>
+          <li v-for="lesson in module.lessons" :key="lesson.id">
+            <span v-if="lesson.views.length > 0" class="check active fas fa-check"></span>
             <span class="nameLesson">{{ lesson.name }}</span>
           </li>
         </ul>
