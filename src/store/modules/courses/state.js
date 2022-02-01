@@ -1,5 +1,11 @@
 const state = {
-    myCourses: []
+    myCourses: [],
+
+    courseSelected: {
+        id: '',
+        name: '',
+        modules: []
+    }
 }
 
 export default state
