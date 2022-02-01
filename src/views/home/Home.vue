@@ -22,10 +22,18 @@
 </template>
 
 <script>
+import { onMounted } from 'vue'
+import { useStore } from 'vuex'
+
 import CardCourse from './components/CardCouse.vue'
 
 export default {
   name: "Home",
+  setup() {
+    const store = useStore()
+
+    onMounted(() => store.dispatch('getCourses'))
+  },
   components: {
     CardCourse
   }
