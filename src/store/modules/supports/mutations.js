@@ -25,7 +25,7 @@ const mutations = {
         const supports = state.supports.data
 
         supports.forEach((support, index) => {
-            if (support === supportId) {
+            if (support.id === supportId) {
                 supports[index].replies.push(reply)
             }
         })
