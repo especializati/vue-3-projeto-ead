@@ -8,7 +8,7 @@ const actions = {
 
     createSupport ({commit}, params) {
         return SupportService.storeSupport(params)
-                                .then(support => commit('ADD_NEW_SUPPORT', support))
+                                .then(response => commit('ADD_NEW_SUPPORT', response.data))
     }
 }
 
