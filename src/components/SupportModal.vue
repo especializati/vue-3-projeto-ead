@@ -68,8 +68,6 @@ export default {
     },
     emits: ['closeModal'],
     setup(props, {emit}) {
-      props.supportReply
-
         const store = useStore()
         const lesson = computed(() => store.state.courses.lessonPlayer)
         const description = ref('')
@@ -81,10 +79,15 @@ export default {
           const params = {
             lesson: lesson.value.id,
             description: description.value,
-            status: 'P'
+            status: 'P',
+            support: props.supportReply,
           }
 
-          store.dispatch('createSupport', params)
+          let actionName = 'createSupport'
+          if (props.supportReply != '')
+            actionName = 'createNewReplyToSupport'
+
+          store.dispatch(actionName, params)
                 .then(() => {
                   description.value = ''
 

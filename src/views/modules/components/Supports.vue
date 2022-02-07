@@ -3,7 +3,7 @@
     <div class="header">
       <span class="title">Dúvidas (total: {{ supports.length }}) <span v-if="loading">(Carregando...)</span> </span>
       <button class="btn primary"
-        @click.prevent="modal.showModal = true">
+        @click.prevent="openModal">
         <i class="fas fa-plus"></i>
         Enviar nova dúvida
       </button>
@@ -39,6 +39,7 @@ export default {
       showModal: false,
       supportReply: ''
     })
+    const openModal = () => modal.value = {showModal: true, supportReply: ''}
 
     watch(
       () => store.state.courses.lessonPlayer,
@@ -55,6 +56,7 @@ export default {
       loading,
       supports,
       modal,
+      openModal,
     }
   },
   components: {
