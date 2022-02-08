@@ -40,12 +40,22 @@
 </template>
 
 <script>
-import Supports from "@/components/Supports.vue";
+import { onMounted, ref } from 'vue'
+import { useStore } from 'vuex'
+
+import Supports from "@/components/Supports.vue"
 
 export default {
   name: "MySupports",
   components: {
     Supports,
   },
+  setup() {
+    const store = useStore()
+
+    const status = ref('')
+
+    onMounted(() => store.dispatch('getMySupports', status.value))
+  }
 };
 </script>
