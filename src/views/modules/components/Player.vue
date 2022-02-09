@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { useStore } from 'vuex'
 
 export default {
@@ -37,6 +37,11 @@ export default {
       const store = useStore()
 
       const lesson = computed(() => store.state.courses.lessonPlayer)
+
+      watch(() => store.state.courses.lessonPlayer, () => {
+        if (lesson.value.id != '')
+          setTimeout(() => store.dispatch('markLessonViewed'), 3000)
+      })
 
       return {
         lesson

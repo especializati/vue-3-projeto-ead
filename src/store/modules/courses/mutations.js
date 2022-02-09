@@ -20,6 +20,17 @@ const mutations = {
             views: [],
         }
     },
+
+    ADD_NEW_VIEW_LESSON (state) {
+        const modules = state.courseSelected.modules
+        modules.forEach((module, indexModule) => {
+            module.lessons.forEach((lesson, indexLesson) => {
+                if (lesson.id === state.lessonPlayer.id) {
+                    modules[indexModule].lessons[indexLesson].views.push({})
+                }
+            })
+        });
+    }
 }
 
 export default mutations
