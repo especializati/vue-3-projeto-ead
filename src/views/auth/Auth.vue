@@ -55,11 +55,12 @@
                                 :class="[
                                     'btn',
                                     'primary',
-                                    loading ? 'loading' : ''
+                                    loading || loadingStore ? 'disabled' : ''
                                 ]"
                                 type="submit"
                                 @click.prevent="auth">
                                 <span v-if="loading">Enviando...</span>
+                                <span v-else-if="loadingStore">Validando Acesso...</span>
                                 <span v-else>Login</span>
                             </button>
                         </form>
@@ -80,7 +81,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useStore } from 'vuex'
 import { notify } from "@kyvg/vue3-notification";
 
@@ -93,6 +94,17 @@ export default {
         const email = ref("")
         const password = ref("")
         const loading = ref(false)
+
+        const loadingStore = computed(() => store.state.loading)
+
+        watch(
+            () => store.state.users.loggedIn,
+            (loggedIn) => {
+                if (loggedIn) {
+                    router.push({name: 'campus.home'})
+                }
+            }
+        )
 
         const typePassword = ref('password')
         const toggleShowPassword = () => typePassword.value = typePassword.value === 'password' ? 'text' : 'password'
@@ -128,6 +140,7 @@ export default {
             loading,
             typePassword,
             toggleShowPassword,
+            loadingStore,
         }
     }
 }
