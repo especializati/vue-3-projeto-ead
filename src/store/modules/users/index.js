@@ -26,8 +26,7 @@ export default {
     },
 
     actions: {
-        auth ({state, dispatch}, params) {
-            state.loggedIn
+        auth ({dispatch}, params) {
             return AuthService.auth(params)
                                 .then(() => dispatch('getMe'))
         },
@@ -40,8 +39,15 @@ export default {
                         .finally(() => commit('CHANGE_LOADING', false))
         },
 
-        forgetPassword ({state}, params) {
-            state.loggedIn
+        logout ({commit}) {
+            commit('CHANGE_LOADING', true)
+
+            return AuthService.logout()
+                                        .then(() => commit('LOGOUT'))
+                                        .finally(() => commit('CHANGE_LOADING', false))
+        },
+
+        forgetPassword (_, params) {
             return ResetPasswordService.forgetPassword(params)
         },
     },
