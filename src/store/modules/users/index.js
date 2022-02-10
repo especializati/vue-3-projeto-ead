@@ -26,9 +26,18 @@ export default {
     },
 
     actions: {
-        auth ({state}, params) {
+        auth ({state, dispatch}, params) {
             state.loggedIn
             return AuthService.auth(params)
+                                .then(() => dispatch('getMe'))
+        },
+
+        getMe ({commit}) {
+            commit('CHANGE_LOADING', true)
+
+            AuthService.getMe()
+                        .then(response => commit('SET_USER', response.data))
+                        .finally(() => commit('CHANGE_LOADING', false))
         },
 
         forgetPassword ({state}, params) {
