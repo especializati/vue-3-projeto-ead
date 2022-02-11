@@ -22,8 +22,8 @@ const actions = {
                                 })
     },
 
-    getMySupports ({commit}, status) {
-        return SupportService.getMySupports(status)
+    getMySupports ({commit}, params) {
+        return SupportService.getMySupports(params)
                                 .then(response => commit('SET_SUPPORTS', response))
     },
 }

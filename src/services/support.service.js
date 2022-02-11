@@ -31,12 +31,10 @@ export default class SupportService extends BaseService {
         })
     }
 
-    static async getMySupports (status = '') {
+    static async getMySupports (params) {
         return new Promise((resolve, reject) => {
             this.request({auth: true})
-                .get('/my-supports', {
-                    params: {status}
-                })
+                .get('/my-supports', {params})
                 .then(response => resolve(response.data))
                 .catch(error => reject(error.response))
         })
