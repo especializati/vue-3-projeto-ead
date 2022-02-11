@@ -34,6 +34,7 @@ import { computed } from 'vue'
 import Modules from './components/Modules.vue'
 import Player from './components/Player.vue'
 import SupportsLesson from './components/Supports.vue'
+import router from "@/router"
 
 export default {
     name: 'ModulesAndLessons',
@@ -41,6 +42,10 @@ export default {
         const store = useStore()
 
         const course = computed(() => store.state.courses.courseSelected)
+
+        if (course.value.id === '') {
+            router.push({name: 'campus.home'})
+        }
 
         return {
             course
