@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pageTitle">
-      <span class="title">Minhas Dúvidas</span>
+      <span class="title">Minhas Dúvidas (total: {{ mySupports.meta.total }})</span>
       <span class="dots">
         <span></span>
         <span></span>
