@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@kyvg/vue3-notification": "^2.3.4",
+    "animate.css": "^4.1.1",
     "axios": "^0.25.0",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
