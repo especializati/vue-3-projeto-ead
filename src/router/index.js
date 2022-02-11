@@ -54,7 +54,7 @@ router.beforeEach(async (to, _, next) => {
   const loggedIn = store.state.users.loggedIn
   if (to.name != 'reset.password' && !loggedIn) {
     const token = await localStorage.getItem(TOKEN_NAME)
-    if (!token && to.name != 'auth' && to.name != 'forgot.password') {
+    if (!token && to.name != 'auth' && to.name != 'forget.password') {
       return router.push({name: 'auth'})
     }
 
