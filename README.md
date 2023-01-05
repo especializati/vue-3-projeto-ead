@@ -1,24 +1,10 @@
-# Projeto Curso Vue.js 3 EAD
+# Curso de Vue 3 - Criando uma Plataforma EAD com Vue.js 3
 
-## Project setup
-```
-npm install
-```
+Nesse curso completo vamos criar uma robusta plataforma ead, com a nova versão do poderoso framework JavaScript, o Vue.js 3!
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- :movie_camera: [Acesse o Curso](https://academy.especializati.com.br/curso/vue-3-plataforma-ead).
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
+Links Úteis:
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- :tada: [Saiba Mais](https://linktr.ee/especializati)
